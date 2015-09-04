@@ -27,6 +27,11 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/duke', function(req, res) {
+  res.status(200).send("I'm Duke");
+});
+
+
 // var connection = mongoose.createConnection('mongodb://localhost:27017/mylogin');
 mongoose.connect('mongodb://localhost:27017/mylogin');
 var Schema = mongoose.Schema;
@@ -98,7 +103,8 @@ app.post('/api/loginservice', function(req, res) {
             } else {
               res.status(200).send({
                 status: 'OK',
-                token: token
+                token: token,
+                username: username
               });
             }
             console.log('inserttoken sent OK');

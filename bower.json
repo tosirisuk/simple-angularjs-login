@@ -7,9 +7,11 @@
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
+    "angular-cookies": "~1.4.5",
     "angular-loader": "~1.4.0",
+    "angular-local-storage": "~0.2.2",
     "angular-mocks": "~1.4.0",
+    "angular-route": "~1.4.0",
     "html5-boilerplate": "~5.2.0"
   }
 }
