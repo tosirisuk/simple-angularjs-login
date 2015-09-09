@@ -11,6 +11,8 @@ angular.module('myApp.login', ['ngRoute'])
 
 .controller('loginCtrl', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
 	console.log("in login controller");
+	$cookies.put('username', null);
+	$cookies.put('token', null);
 	console.log("token is "+$cookies.get('token'));
 	// console.log("delete token and token is "+$cookies.token);
 	$scope.submitlogin = function() {
