@@ -11,7 +11,7 @@ angular.module('myApp.login', ['ngRoute'])
 
 .controller('loginCtrl', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
 	console.log("in login controller");
-	console.log("token is "+$cookies.token);
+	console.log("token is "+$cookies.get('token'));
 	// console.log("delete token and token is "+$cookies.token);
 	$scope.submitlogin = function() {
 		console.log($scope.username);
@@ -24,10 +24,10 @@ angular.module('myApp.login', ['ngRoute'])
 				console.log(res.status);
 				if(res.status==="OK"){
 					console.log(res);
-					$cookies.token = res.token;
-					$cookies.username = $scope.username
-					console.log("token is "+$cookies.token);
-					console.log("username is "+$cookies.username);
+					$cookies.put('token', res.token);
+					$cookies.put('username',$scope.username);
+					console.log("token is "+$cookies.get('token'));
+					console.log("username is "+$cookies.get('username'));
 				}else{
 					console.log(res.status);
 				}
