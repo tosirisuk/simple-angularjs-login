@@ -9,7 +9,7 @@ angular.module('myApp.login', ['ngRoute'])
 	});
 }])
 
-.controller('loginCtrl', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
+.controller('loginCtrl', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location) {
 	console.log("in login controller");
 	$cookies.put('username', null);
 	$cookies.put('token', null);
@@ -38,5 +38,6 @@ angular.module('myApp.login', ['ngRoute'])
 				console.log("error");
 			});
 	}
+	$location.path('/success');
 	
 }]);
