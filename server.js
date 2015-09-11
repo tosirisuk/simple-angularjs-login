@@ -63,6 +63,37 @@ app.get('/api/testget', function(req, res) {
   });
 });
 
+app.post('/api/checktokenservice', function(req, res){
+  var token = req.body.token;
+  var username = req.body.username;
+  console.log(token);
+  if(username !== null && token !== null){
+    TokenLogin.findOne({
+      token: token,
+      username: username
+    }, function(err, record){
+      if (err){
+        res.status(500).send({
+          status:"Internal ERROR"
+        })
+      }else{
+        if(record && record.username === username && record.token === token){
+          res.status(200).send({
+            status:'OK',
+          });
+        }else{
+          res.status(200).send({
+            status:'badtoken'
+          });
+        }
+      }
+    });
+  }else{
+    res.status(202).send({
+      status:"missing data"
+    });
+  }
+});
 
 app.post('/api/loginservice', function(req, res) {
   if (req.body.username !== undefined && req.body.password !== undefined) {
@@ -77,7 +108,8 @@ app.post('/api/loginservice', function(req, res) {
   console.log(password);
   if (username !== null && password !== null) {
     User.findOne({
-      username: username
+      username: username,
+      password: password
     }, function(err, record) {
       if (err) {
         // console.log(err);
@@ -113,13 +145,9 @@ app.post('/api/loginservice', function(req, res) {
 
         } else if (record == null) {
           res.status(202).send({
-            status: 'no user found'
-          });
-        } else if (record) {
-          res.status(202).send({
             status: 'user and password do not match'
           });
-        } else {
+        }else {
           res.status(403).send({
             status: 'ERROR'
           });
