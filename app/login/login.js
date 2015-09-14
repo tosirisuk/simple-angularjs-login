@@ -9,11 +9,11 @@ angular.module('myApp.login', ['ngRoute'])
 	});
 }])
 
-.controller('loginCtrl', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location) {
+.controller('loginCtrl', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location ) {
 	console.log("in login controller");
-	
 	console.log("token is "+$cookies.get('token'));
-	if($cookies.get('token')!==null){
+	
+	if($cookies.get('username')!==undefined && $cookies.get('token')!==undefined){
 		$http.post('/api/checktokenservice',{
 			token: $cookies.get('token'),
 			username: $cookies.get('username')
@@ -27,18 +27,20 @@ angular.module('myApp.login', ['ngRoute'])
 			
 		})
 		.error(function(data, status){
+			alert("Cannot connect to the server");
 			$location.path('/login');
 		});
 	}else{
+		console.log("no valid token");
 		$location.path('/login');
 	}
 	
-	// console.log("delete token and token is "+$cookies.token);
 	$scope.submitlogin = function() {
+
 		$cookies.put('username', null);
 		$cookies.put('token', null);
-		console.log($scope.username);
-		console.log($scope.password);
+		console.log("username is: "+$scope.username);
+		console.log("password is: "+$scope.password);
 		$http.post('/api/loginservice', {
 				username: $scope.username,
 				password: $scope.password
@@ -52,14 +54,18 @@ angular.module('myApp.login', ['ngRoute'])
 					console.log("username is "+$cookies.get('username'));
 					console.log("token is "+$cookies.get('token'));
 					console.log("GOING to Success");
+					alert('Login Success');
 					$location.path('/success');
 				}else{
-					console.log(res.status);
+					alert('Login Fail');
 				}
 			})
 			.error(function(data, status) {
-				console.log("error");
+				alert('Cannot connect to the server');
+				console.log("Cannot connect to the server");
+				$location.path('/login');
 			});
 	}
+	
 	
 }]);

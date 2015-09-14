@@ -31,9 +31,7 @@ app.get('/duke', function(req, res) {
   res.status(200).send("I'm Duke");
 });
 
-
-// var connection = mongoose.createConnection('mongodb://localhost:27017/mylogin');
-mongoose.connect('mongodb://localhost:27017/mylogin');
+mongoose.connect('mongodb://localhost:27017/simple-login');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -96,13 +94,15 @@ app.post('/api/checktokenservice', function(req, res){
 });
 
 app.post('/api/loginservice', function(req, res) {
-  if (req.body.username !== undefined && req.body.password !== undefined) {
-    var username = req.body.username;
-    var password = req.body.password;
-  } else {
-    var username = req.query.username;
-    var password = req.query.password;
-  }
+  var username = req.body.username;
+  var password = req.body.password;
+  // if (req.body.username !== undefined && req.body.password !== undefined) {
+  //   var username = req.body.username;
+  //   var password = req.body.password;
+  // } else {
+  //   var username = req.query.username;
+  //   var password = req.query.password;
+  // }
 
   console.log(username);
   console.log(password);

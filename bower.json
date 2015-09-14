@@ -7,10 +7,12 @@
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
+    "angular-bootstrap": "~0.13.4",
     "angular-cookies": "~1.4.5",
     "angular-loader": "~1.4.0",
     "angular-local-storage": "~0.2.2",
     "angular-mocks": "~1.4.0",
+    "angular-modal-service": "~0.6.7",
     "angular-route": "~1.4.0",
     "html5-boilerplate": "~5.2.0"
   }

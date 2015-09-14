@@ -8,7 +8,9 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.login',
   'myApp.success',
-  'myApp.version'
+  'myApp.version',
+  'ui.bootstrap',
+  'angularModalService'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/login'});

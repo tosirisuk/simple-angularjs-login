@@ -9,6 +9,34 @@ angular.module('myApp.success', ['ngRoute'])
   });
 }])
 
-.controller('successCtrl', [function() {
+.controller('successCtrl', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location ) {
+	console.log("in success controller");
+	if($cookies.get('username')!==undefined && $cookies.get('token')!==undefined){
+		$http.post('/api/checktokenservice',{
+			token: $cookies.get('token'),
+			username: $cookies.get('username')
+		})
+		.success(function(res, status){
+			if(res.status==='OK'){
+				$location.path('/success');
+			}else{
+				$location.path('/login');
+			}
+			
+		})
+		.error(function(data, status){
+			alert('lost connection to the server');
+			console.log("Cannot connect to the server");	
+		});
+	}else{
+		console.log("no token");
+		$location.path('/login');
+	}
 	
+	$scope.submitlogout=function(){
+		$cookies.put('username', null);
+		$cookies.put('token', null);
+		alert('Log out !!!');
+		$location.path('/login');
+	}
 }]);

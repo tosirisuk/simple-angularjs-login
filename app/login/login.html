@@ -1,9 +1,10 @@
-<p>This is the partial for login.</p>
-
-<section class="container">
-    <div class="login">
-      <h1>Login</h1>
+<h1> Login </h1>
+  <section>
+      
       <form>
+        <div ng-show={{loginfail}}>
+          <p><span>Username does not match with Password.</p>
+        </div>
         <p><input type="text" name="login" value="" placeholder="Username" ng-model="username"></p>
         <p><input type="password" name="password" value="" placeholder="Password" ng-model="password"></p>
         <!-- <p class="remember_me">
