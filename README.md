@@ -14,16 +14,18 @@ framework and a bunch of development and testing tools for instant web developme
 The seed app doesn't do much, just shows how to wire two controllers and views together.
 
 
+
 ## Getting Started
 
 To get you started you can simply install MongoDB, install NodeJS, clone the repository and install the dependencies.
 
+
 ### Prerequisites (Git and NodeJS)
 
-You need git to clone any git repository. You can get git from
+You need [git](http://git-scm.com/). to clone any git repository. You can get git from
 [http://git-scm.com/](http://git-scm.com/).
 
-You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+You must have [nodejs](http://nodejs.org/) and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
 ### Installing MongoDB
 
@@ -65,10 +67,6 @@ folders in your project.
 *Note that the `bower_components` folder would normally be installed in the root folder but
 angular-seed changes this location through the `.bowerrc` file.  Putting it in the app folder makes
 it easier to serve the files by a webserver.*
-
-
-
-
 
 
 ## Run the Application
