@@ -15,6 +15,8 @@ The seed app doesn't do much, just shows how to wire two controllers and views t
 
 
 
+
+
 ## Getting Started
 
 To get you started you can simply install MongoDB, install NodeJS, clone the repository and install the dependencies.
@@ -22,10 +24,11 @@ To get you started you can simply install MongoDB, install NodeJS, clone the rep
 
 ### Prerequisites (Git and NodeJS)
 
-You need [git](http://git-scm.com/). to clone any git repository. You can get git from
+You need [git](http://git-scm.com/) to clone any git repository. You can get git from
 [http://git-scm.com/](http://git-scm.com/).
 
 You must have [nodejs](http://nodejs.org/) and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+
 
 ### Installing MongoDB
 
@@ -35,6 +38,7 @@ Do not forget to create the /data/db directory.
 The database name used in the repository is simple-login.
 `mongoose.connect('mongodb://localhost:27017/simple-login');`
 
+
 ### Clone the repository
 
 Clone the repository using [git][git]:
@@ -43,6 +47,7 @@ Clone the repository using [git][git]:
 git clone https://github.com/tosirisuk/simple-angularjs-login.git
 cd simple-angularjs-login
 ```
+
 
 ### Install Dependencies
 
@@ -69,6 +74,8 @@ angular-seed changes this location through the `.bowerrc` file.  Putting it in t
 it easier to serve the files by a webserver.*
 
 
+
+
 ## Run the Application
 
 The server, which is NodeJS, is the server.js file.  The simplest way to start this server is:
@@ -76,6 +83,7 @@ The server, which is NodeJS, is the server.js file.  The simplest way to start t
 ```
 node server.js
 ```
+
 
 ###However, I highly recommend to use [nodemon](https://github.com/remy/nodemon) instead of `node server.js`:
 
@@ -90,6 +98,7 @@ nodemon server.js
 ```
 
 Now browse to the app at `http://localhost:3000/` or `http://localhost:3000/#/login`.
+
 
 
 
@@ -113,6 +122,7 @@ bower update
 ```
 
 This will find the latest versions that match the version ranges specified in the `bower.json` file.
+
 
 
 
