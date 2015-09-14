@@ -1,10 +1,10 @@
-This project uses [AngularJS](https://angularjs.org/), [NodeJS](https://nodejs.org/en/), [MongooseJS](http://mongoosejs.com/), [ExpressJS](http://expressjs.com/), and [MongoDB](https://www.mongodb.org/).
+#This project uses [AngularJS](https://angularjs.org/), [NodeJS](https://nodejs.org/en/), [MongooseJS](http://mongoosejs.com/), [ExpressJS](http://expressjs.com/), and [MongoDB](https://www.mongodb.org/).
 
 This project uses the application skeleton from [angular-seed](https://github.com/angular/angular-seed).
 
-# angular-seed — the seed for AngularJS apps
+### angular-seed — the seed for AngularJS apps
 
-Angular-seed project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
+[Angular-seed](https://github.com/angular/angular-seed) project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 You can use it to quickly bootstrap your angular webapp projects and dev environment for these
 projects.
 
@@ -16,15 +16,22 @@ The seed app doesn't do much, just shows how to wire two controllers and views t
 
 ## Getting Started
 
-To get you started you can simply clone the repository, install the dependencies, and install MongoDB.
+To get you started you can simply install MongoDB, install NodeJS, clone the repository and install the dependencies.
 
-### Prerequisites
+### Prerequisites (Git and NodeJS)
 
 You need git to clone any git repository. You can get git from
 [http://git-scm.com/](http://git-scm.com/).
 
-We also use a number of node.js tools to initialize and test. You must have node.js and
-its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+
+### Installing MongoDB
+
+Please visit [MongoDB](https://www.mongodb.org/)
+
+Do not forget to create the /data/db directory.
+The database name used in the repository is simple-login.
+`mongoose.connect('mongodb://localhost:27017/simple-login');`
 
 ### Clone the repository
 
@@ -61,16 +68,10 @@ it easier to serve the files by a webserver.*
 
 
 
-### Installing MongoDB
-
-Please visit [MongoDB](https://www.mongodb.org/)
-
-Do not forget to create the /data/db directory.
-The database name used in the repository is simple-login.
-`mongoose.connect('mongodb://localhost:27017/simple-login');`
 
 
-### Run the Application
+
+## Run the Application
 
 The server, which is NodeJS, is the server.js file.  The simplest way to start this server is:
 
@@ -78,7 +79,7 @@ The server, which is NodeJS, is the server.js file.  The simplest way to start t
 node server.js
 ```
 
-However, I highly recommend to use [nodemon](https://github.com/remy/nodemon) instead of `node server.js`:
+###However, I highly recommend to use [nodemon](https://github.com/remy/nodemon) instead of `node server.js`:
 
 To install [nodemon](https://github.com/remy/nodemon), run the command : 
 ```
@@ -120,7 +121,6 @@ This will find the latest versions that match the version ranges specified in th
 ## Contact
 
 For more information on AngularJS please check out http://angularjs.org/
-
 [git]: http://git-scm.com/
 [bower]: http://bower.io
 [npm]: https://www.npmjs.org/
