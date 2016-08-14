@@ -8,6 +8,7 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.login',
   'myApp.success',
+  'myApp.register',
   'myApp.version',
   'ui.bootstrap',
   'angularModalService'

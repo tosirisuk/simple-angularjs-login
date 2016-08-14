@@ -11,10 +11,10 @@ angular.module('myApp.success', ['ngRoute'])
 
 .controller('successCtrl', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location ) {
 	console.log("in success controller");
-	if($cookies.get('username')!==undefined && $cookies.get('token')!==undefined){
+	if($cookies.get('email')!==undefined && $cookies.get('token')!==undefined){
 		$http.post('/api/checktokenservice',{
 			token: $cookies.get('token'),
-			username: $cookies.get('username')
+			email: $cookies.get('email')
 		})
 		.success(function(res, status){
 			if(res.status==='OK'){
@@ -34,7 +34,7 @@ angular.module('myApp.success', ['ngRoute'])
 	}
 	
 	$scope.submitlogout=function(){
-		$cookies.put('username', null);
+		$cookies.put('email', null);
 		$cookies.put('token', null);
 		alert('Log out !!!');
 		$location.path('/login');

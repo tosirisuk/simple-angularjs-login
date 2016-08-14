@@ -1,0 +1,55 @@
+<h1> Register </h1>
+
+<div>
+	<form>
+		<div id="inputBoxs">
+			<div>
+				<table>
+	      			<tr>
+	      				<td>Firstname:</td>
+	      				<td><input type="text" ng-model="firstname" maxlength="256"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Lastname:</td>
+	      				<td><input type="text" ng-model="lastname" maxlength="256"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Address:</td>
+	      				<td><input type="text" ng-model="address"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>E-mail:</td>
+	      				<td><input type="text" ng-model="email" maxlength="256"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Telephone Number:</td>
+	      				<td><input type="text" ng-model="telNo" pattern=".{10,10}" maxlength="10"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>ID Card Number:</td>
+	      				<td><input type="text" ng-model="idCardNo" pattern=".{13,13}" maxlength="13"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Birth Day (mm/dd/yyyy):</td>
+	      				<td><input type="text" ng-model="birthDay"></td>
+
+	      			</tr>
+	      			<tr>
+	      				<td>Password:</td>
+	      				<td><input type="password" ng-model="password" pattern=".{8,256}" maxlength="256" ></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Verify Password:</td>
+	      				<td><input type="password" ng-model="verifyPass" pattern=".{8,256}" maxlength="256"></td>
+	      			</tr>
+	      		</table>
+				<div>
+					<input type="button" class="btn btn-primary" value="Submit" ng-click="submit()">  
+					<input type="button" class="btn btn-primary" value="Clear" ng-click="clear()">
+					<input type="button" class="btn btn-primary" value="Cancel" ng-click="cancel()">
+				</div>																			
+			</div> 
+
+		</div>	
+	</form>
+</div>

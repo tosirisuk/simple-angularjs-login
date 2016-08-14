@@ -31,18 +31,18 @@ app.get('/duke', function(req, res) {
   res.status(200).send("I'm Duke");
 });
 
-mongoose.connect('mongodb://localhost:27017/simple-login');
+mongoose.connect('mongodb://localhost:27017/simple-web');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   _id: Schema.Types.ObjectId,
-  username: String,
+  email: String,
   password: String
 });
 
 var tokenLoginSchema = new Schema({
   _id: Schema.Types.ObjectId,
-  username: String,
+  email: String,
   token: String
 });
 
@@ -63,19 +63,19 @@ app.get('/api/testget', function(req, res) {
 
 app.post('/api/checktokenservice', function(req, res){
   var token = req.body.token;
-  var username = req.body.username;
+  var email = req.body.email;
   console.log(token);
-  if(username !== null && token !== null){
+  if(email !== null && token !== null){
     TokenLogin.findOne({
       token: token,
-      username: username
+      email: email
     }, function(err, record){
       if (err){
         res.status(500).send({
           status:"Internal ERROR"
         })
       }else{
-        if(record && record.username === username && record.token === token){
+        if(record && record.email === email && record.token === token){
           res.status(200).send({
             status:'OK',
           });
@@ -94,21 +94,21 @@ app.post('/api/checktokenservice', function(req, res){
 });
 
 app.post('/api/loginservice', function(req, res) {
-  var username = req.body.username;
+  var email = req.body.email;
   var password = req.body.password;
-  // if (req.body.username !== undefined && req.body.password !== undefined) {
-  //   var username = req.body.username;
+  // if (req.body.email !== undefined && req.body.password !== undefined) {
+  //   var email = req.body.email;
   //   var password = req.body.password;
   // } else {
-  //   var username = req.query.username;
+  //   var email = req.query.email;
   //   var password = req.query.password;
   // }
 
-  console.log(username);
+  console.log(email);
   console.log(password);
-  if (username !== null && password !== null) {
+  if (email !== null && password !== null && email !== undefined && password !== undefined) {
     User.findOne({
-      username: username,
+      email: email,
       password: password
     }, function(err, record) {
       if (err) {
@@ -117,7 +117,7 @@ app.post('/api/loginservice', function(req, res) {
           status: 'ERROR'
         });
       } else {
-        if (record && record.username === username && record.password === password) {
+        if (record && record.email === email && record.password === password) {
           // console.log("login going to success");
           var salt = Math.random();
           var SHA256 = require("crypto-js/sha256");
@@ -125,7 +125,7 @@ app.post('/api/loginservice', function(req, res) {
           var token = saltBeingHashed.toString(CryptoJS.enc.Base64);
           var newRecord = new TokenLogin();
           newRecord._id = new mongoose.Types.ObjectId();
-          newRecord.username = username;
+          newRecord.email = email;
           newRecord.token = token;
           console.log("newRecord is " + newRecord);
           newRecord.save(function(err) {
@@ -136,7 +136,7 @@ app.post('/api/loginservice', function(req, res) {
               res.status(200).send({
                 status: 'OK',
                 token: token,
-                username: username
+                email: email
               });
             }
             console.log('inserttoken sent OK');
@@ -159,5 +159,9 @@ app.post('/api/loginservice', function(req, res) {
       status: 'ERROR'
     });
   }
+
+});
+
+app.post('/api/register',function(req,res){
 
 });
